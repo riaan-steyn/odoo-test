@@ -1,0 +1,59 @@
+<odoo>
+    <record model="ir.ui.view" id="estate_form_view">
+        <field name="name">Estate</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Properties Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="estate_id"/>
+                        <field name="levy_amount" required="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="estate_view_tree" model="ir.ui.view">
+        <field name="name">Estate</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="estate_id"/>
+                <field name="levy_amount"/>
+                <field name="partner_id" string="Partner"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_estate_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="estate_view_tree"/>
+        <field name="act_window_id" ref="estate_list_action"/>
+    </record>
+
+    <record id="action_estate_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="estate_view_tree"/>
+        <field name="act_window_id" ref="estate_list_action"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="estate_list_action">
+        <field name="name">Properties</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_smiling_face">Create your first property.</p>
+        </field>
+    </record>
+
+    <menuitem id="main_estate_menu" name="Estate"/>
+
+    <menuitem id="estate_menu" name="Estate" parent="main_estate_menu"/>
+
+    <menuitem id="property_menu" name="Properties" parent="estate_menu" action="estate_list_action"/>
+</odoo>

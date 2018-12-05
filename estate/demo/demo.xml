@@ -1,0 +1,25 @@
+<odoo>
+    <data>
+        <record id="object0" model="estate.estate">
+            <field name="name">Clearwater</field>
+        </record>
+        <record id="object1" model="estate.property">
+            <field name="name">172</field>
+            <field name="estate_id">1</field>
+            <field name="levy_amount">1500</field>
+            <field name="name">1</field>
+        </record>
+        <record id="object2" model="estate.property">
+            <field name="name">173</field>
+            <field name="estate_id">1</field>
+            <field name="levy_amount">1750</field>
+            <field name="partner_id">1</field>
+        </record>
+        <record id="object3" model="estate.property">
+            <field name="name">171</field>
+            <field name="estate_id">1</field>
+            <field name="levy_amount">6000</field>
+            <field name="partner_id">1</field>
+        </record>
+    </data>
+</odoo>
